@@ -1,0 +1,36 @@
+﻿@model MVCWithLinq1.Models.Student
+@{
+    ViewBag.Title = "DisplayStudent";
+}
+
+<h2 style="background-color:gold;color:red;text-align:center;"class="rounded-5">DisplayStudent</h2>
+<table border="1"align="center"class="table table-striped-columns">
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>@Html.DisplayNameFor(u => u.Sid)</td>
+            <td>@Html.DisplayFor(u => u.Sid)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(u => u.Name)</td>
+            <td>@Html.DisplayFor(u => u.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(u => u.Class)</td>
+            <td>@Html.DisplayFor(u => u.Class)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(u => u.Fees)</td>
+            <td>@Html.DisplayFor(u => u.Fees)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(u => u.Photo)</td>
+            
+            <td rowspan="4"><img src='~/Uploads/@Model.Photo' width="200" height="200" alt="No Image" /></td>
+        </tr>
+        <tr>
+            <td rowspan="2" align="center">    <button type="button" class="btn btn-outline-info">@Html.ActionLink("Back to Display student", "DisplayStudents")</button></td>
+        </tr>
+    }
+</table>
+

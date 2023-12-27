@@ -1,0 +1,56 @@
+﻿@model MVCWithLinq1.Models.Student
+@{
+    ViewBag.Title = "EditStudent";
+}
+
+<h1 style="text-align:center;background-color:gold;color:fuchsia;">Update Student Details:</h1>
+
+<table border="1" align="center" class="table table-success table-striped" style="text-align :center;">
+
+
+    @*@using (Html.BeginForm("EditStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <tr><td>@Html.DisplayNameFor(s => s.Sid)</td><td>@Html.TextBoxFor(U => U.Sid)</td> </tr>
+        <tr><td>@Html.DisplayNameFor(s => s.Name)</td><td>@Html.TextBoxFor(U => U.Name)</td> </tr>
+        <tr><td>@Html.DisplayNameFor(s => s.Class)</td><td>@Html.TextBoxFor(U => U.Class)</td> </tr>
+        <tr><td>@Html.DisplayNameFor(s => s.Fees)</td><td>@Html.TextBoxFor(U => U.Fees)</td> </tr>
+        <tr><td>@Html.DisplayNameFor(s => s.Status)</td><td>@Html.EditorFor(U => U.Status)</td> </tr>
+        <tr><td>@Html.DisplayNameFor(s => s.Photo)</td><td><input type="file" name="selectedFile" /></td> </tr>
+        <tr style="column-span:inherit;text-align:center;">
+            <td>
+            </td>
+            <td>
+                <input type="submit" class="btn btn-outline-success" />
+                <input type="reset" class="btn btn-outline-danger" />
+                <button type="button" class="btn btn-outline-info">@Html.ActionLink("Back to Display student", "DisplayStudents")</button>
+            </td>
+
+        </tr>
+
+
+
+
+
+
+    }*@
+
+
+    @using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+        <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+        <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+        <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+        <div>
+            @Html.LabelFor(S => S.Photo)<br />
+            <img src='~/Uploads/@Model.Photo' height="50" width="50" alt="No Image" style="border:dashed 2px red" />
+            <input type="file" name="selectedFile" />
+        </div>
+        <div>
+            <input type="submit" value="Update" />
+            @Html.ActionLink("Cancel", "DisplayStudents")
+        </div>
+    }
+
+
+</table>

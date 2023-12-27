@@ -1,0 +1,39 @@
+﻿@model MVCWithLinq1.Models.Student
+@{
+    ViewBag.Title = "AddStudent";
+}
+
+<h1 style="text-align:center;background-color:gold;color:fuchsia;">Enter details to add User:</h1>
+
+<table border="1" align="center"class="table table-success table-striped"style="text-align :center;">
+
+    
+        @using (Html.BeginForm("Addstudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <tr><td>@Html.DisplayNameFor(s => s.Sid)</td><td>@Html.TextBoxFor(U=>U.Sid)</td> </tr>
+            <tr><td>@Html.DisplayNameFor(s => s.Name)</td><td>@Html.TextBoxFor(U=>U.Name)</td> </tr>
+            <tr><td>@Html.DisplayNameFor(s => s.Class)</td><td>@Html.TextBoxFor(U=>U.Class)</td> </tr>
+            <tr><td>@Html.DisplayNameFor(s => s.Fees)</td><td>@Html.TextBoxFor(U=>U.Fees)</td> </tr>
+            <tr><td>@Html.DisplayNameFor(s => s.Status)</td><td>@Html.EditorFor(U=>U.Status)</td> </tr>
+            <tr><td>@Html.DisplayNameFor(s => s.Photo)</td><td><input type="file" name="selectedFile" /></td> </tr>
+            <tr style="column-span:inherit;text-align:center;">
+                <td>
+                   
+                </td>
+                <td>
+                    <input type="submit" class="btn btn-outline-success" />
+                    <input type="reset" class="btn btn-outline-danger" />
+                    <button type="button" class="btn btn-outline-info">@Html.ActionLink("Back to Display student", "DisplayStudents")</button>
+                </td>
+
+            </tr>
+           
+            
+           
+           
+
+
+        }
+    
+
+</table>
